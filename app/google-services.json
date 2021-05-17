@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "307850672279",
+    "project_id": "orderez-af6cc",
+    "storage_bucket": "orderez-af6cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307850672279:android:37589219bab55a7d7a91d2",
+        "android_client_info": {
+          "package_name": "com.example.orderez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307850672279-aintbkge55pfi06sjfh747sna81dnob2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMYaRrONgMY8HjI3ZQnCDwb_W5Pc33UpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307850672279-aintbkge55pfi06sjfh747sna81dnob2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
