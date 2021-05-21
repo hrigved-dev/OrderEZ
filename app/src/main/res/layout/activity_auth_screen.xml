@@ -96,7 +96,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimary"
             android:padding="10dp"
-            android:onClick="signUp"
+            android:onClick="signIn"
             android:text="Login"
             android:textColor="@color/white" />
     </LinearLayout>

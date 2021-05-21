@@ -46,23 +46,38 @@ public class AuthScreen extends AppCompatActivity {
         });
     }
 
-    public void signUp(View view) {
+    public void signIn(View view) {
         String email = t1.getEditText().getText().toString();
         String password = t2.getEditText().getText().toString();
+        bar.setVisibility(View.VISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
 
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(AuthScreen.this,  new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(AuthScreen.this,  new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
+                    bar.setVisibility(View.INVISIBLE);
+                    t1.getEditText().setText("");
+                    t2.getEditText().setText("");
+                    Toast.makeText(getApplicationContext(), "Logged In Successfully", Toast.LENGTH_LONG).show();
+                    FirebaseUser user = mAuth.getCurrentUser();
+//                    updateUI(user);
+                    Intent myIntent = new Intent(AuthScreen.this, Dashboard.class);
+                    startActivity(myIntent);
+                    finish();
 
                 } else {
-
+                    bar.setVisibility(View.INVISIBLE);
+                    t1.getEditText().setText("");
+                    t2.getEditText().setText("");
+                    Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
+
+
 
 
 
