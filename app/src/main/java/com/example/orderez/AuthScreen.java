@@ -64,6 +64,8 @@ public class AuthScreen extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
 //                    updateUI(user);
                     Intent myIntent = new Intent(AuthScreen.this, Dashboard.class);
+                    myIntent.putExtra("email", user.getEmail());
+                    myIntent.putExtra("uid", user.getUid());
                     startActivity(myIntent);
                     finish();
 
@@ -71,7 +73,7 @@ public class AuthScreen extends AppCompatActivity {
                     bar.setVisibility(View.INVISIBLE);
                     t1.getEditText().setText("");
                     t2.getEditText().setText("");
-                    Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Invalid Email or Password", Toast.LENGTH_LONG).show();
                 }
             }
         });
