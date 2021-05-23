@@ -66,7 +66,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myViewHo
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.img.getContext());
                 builder.setTitle("Delete");
-                builder.setTitle("Are you sure you want to Delete..?");
+                builder.setTitle("Are you sure you want to delete?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override

@@ -57,7 +57,6 @@ public class Dashboard extends AppCompatActivity {
         fab = (FloatingActionButton)findViewById(R.id.fAdd);
         loading = (ProgressBar)findViewById(R.id.loading);
 
-        
 
         Spannable wordtoSpan = new SpannableString("OrderEZ");
         wordtoSpan.setSpan(new ForegroundColorSpan(Color.rgb(245, 92, 71)), 5, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -108,6 +107,14 @@ public class Dashboard extends AppCompatActivity {
             }
         };
         timer.start();
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Dashboard.this, AddData.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
 
