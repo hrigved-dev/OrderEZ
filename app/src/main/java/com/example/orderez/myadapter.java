@@ -37,24 +37,24 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myViewHo
             public void onClick(View view) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext()).setContentHolder(new ViewHolder(R.layout.dialogcontent)).setExpanded(true, 1450).create();
 
-                View myView = dialogPlus.getHolderView();
-                EditText name = myView.findViewById(R.id.nameText);
-                EditText order = myView.findViewById(R.id.orderText);
-                EditText extra = myView.findViewById(R.id.extraText);
-                Button update = myView.findViewById(R.id.update);
-
-                name.setText(model.getName());
-                order.setText(model.getOrder());
-                extra.setText(model.getExtra());
+//                View myView = dialogPlus.getHolderView();
+//                EditText name = myView.findViewById(R.id.nameText);
+//                EditText order = myView.findViewById(R.id.orderText);
+//                EditText extra = myView.findViewById(R.id.extraText);
+//                Button update = myView.findViewById(R.id.update);
+//
+//                name.setText(model.getName());
+//                order.setText(model.getOrder());
+//                extra.setText(model.getExtra());
 
                 dialogPlus.show();
 
-                update.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
+//                update.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                    }
+//                });
             }
         });
     }
