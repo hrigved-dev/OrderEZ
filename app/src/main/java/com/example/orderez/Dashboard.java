@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +18,9 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -24,7 +29,8 @@ public class Dashboard extends AppCompatActivity {
     myadapter adapter;
     ProgressBar loading;
     Thread timer;
-
+    EditText inputSearch;
+    DatabaseReference Dataref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +38,48 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         mAuth = FirebaseAuth.getInstance();
+        Dataref = FirebaseDatabase.getInstance().getReference().child("users");
+        inputSearch = (EditText)findViewById(R.id.inputSearch);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
         loading = (ProgressBar)findViewById(R.id.loading);
 
-        FirebaseRecyclerOptions<model> options =
-                new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("users"), model.class)
-                        .build();
+        LoadData("");
+        inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        adapter = new myadapter(options);
-        recyclerView.setAdapter(adapter);
-        loading.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString() != null) {
+                    LoadData(s.toString());
+                }
+                else {
+                    LoadData("");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.toString() != null) {
+                    LoadData(s.toString());
+                }
+                else {
+                    LoadData("");
+                }
+            }
+        });
+
 
         timer = new Thread() {
             @Override
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(25000);
+                        wait(3000);
                     }
                 } catch(InterruptedException e) {
                     e.printStackTrace();
@@ -62,6 +91,18 @@ public class Dashboard extends AppCompatActivity {
         };
         timer.start();
 
+    }
+
+    private void LoadData(String s) {
+        Query query = Dataref.orderByChild("name").startAt(s).endAt(s+"\uf8ff");
+        FirebaseRecyclerOptions<model> options =
+                new FirebaseRecyclerOptions.Builder<model>()
+                        .setQuery(query, model.class)
+                        .build();
+
+        adapter = new myadapter(options);
+        recyclerView.setAdapter(adapter);
+        loading.setVisibility(View.VISIBLE);
     }
 
     @Override
