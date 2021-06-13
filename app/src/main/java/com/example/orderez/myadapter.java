@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewAnimator;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -40,24 +47,39 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myViewHo
             public void onClick(View view) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext()).setContentHolder(new ViewHolder(R.layout.dialogcontent)).setExpanded(true, 1450).create();
 
-//                View myView = dialogPlus.getHolderView();
-//                EditText name = myView.findViewById(R.id.nameText);
-//                EditText order = myView.findViewById(R.id.orderText);
-//                EditText extra = myView.findViewById(R.id.extraText);
-//                Button update = myView.findViewById(R.id.update);
-//
-//                name.setText(model.getName());
-//                order.setText(model.getOrder());
-//                extra.setText(model.getExtra());
+                View myView = dialogPlus.getHolderView();
+                TextInputLayout name = myView.findViewById(R.id.nameText);
+                TextInputLayout order = myView.findViewById(R.id.orderText);
+                TextInputLayout extra = myView.findViewById(R.id.extraText);
+                Button update = myView.findViewById(R.id.update);
+
+                name.getEditText().setText(model.getName());
+                order.getEditText().setText(model.getOrder());
+                extra.getEditText().setText(model.getExtra());
 
                 dialogPlus.show();
 
-//                update.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                    }
-//                });
+                update.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("name", name.getEditText().getText().toString());
+                        map.put("order", order.getEditText().getText().toString());
+                        map.put("extra", extra.getEditText().getText().toString());
+
+                        FirebaseDatabase.getInstance().getReference().child("users").child(getRef(position).getKey()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                dialogPlus.dismiss();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                dialogPlus.dismiss();
+                            }
+                        });
+                    }
+                });
             }
         });
 
