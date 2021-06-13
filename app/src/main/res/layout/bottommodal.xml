@@ -68,10 +68,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/update"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimary"
+        android:layout_marginHorizontal="20dp"
         android:padding="20dp"
         android:text="Add"
         android:textColor="@color/white" />
