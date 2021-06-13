@@ -6,8 +6,8 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Add Order"
+        android:layout_height="wrap_content"
+        android:text="Update Order"
         android:textColor="@color/black"
         android:fontFamily="sans-serif-black"
         android:paddingBottom="10dp"

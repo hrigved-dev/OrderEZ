@@ -7,12 +7,13 @@
     tools:context=".AuthScreen">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="70dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginRight="188dp"
-        android:text="New User?"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="New User? Sign Up Instead."
+        android:paddingHorizontal="5dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +22,9 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="211dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:fontFamily="sans-serif-black"
         android:text="Welcome,"
         android:textColor="@color/black"
@@ -36,10 +38,10 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="305dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:text="Sign in to continue!"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,8 +51,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="359dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="80dp"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
@@ -93,8 +97,9 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="359dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimary"
             android:onClick="signIn"
@@ -116,18 +121,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.275" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="70dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:text="Sign Up."
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="100dp"-->
+<!--        android:layout_marginRight="116dp"-->
+<!--        android:text="Sign Up."-->
+<!--        android:textColor="@color/colorAccent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.981" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
