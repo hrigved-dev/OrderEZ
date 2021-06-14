@@ -14,28 +14,13 @@ We often find ourselves in a situation where the waiter at a particular restaura
 
 ## Screenshots
 
-Splash Screen-
 ![splashscreen](images/SplashScreen.png)
-
-Login Screen-
 ![loginscreen](images/LoginPage.png)
-
-Register Screen-
 ![registerscreen](images/RegisterPage.png)
-
-Dashboard Screen-
 ![dashboard](images/Dashboard.png)
-
-Search Functionality-
 ![search](images/Search.png)
-
-Update Data-
 ![bottommodal](images/UpdateBottomModal.png)
-
-Delete Data-
 ![deletedialog](images/DeleteDialog.png)
-
-Add Data-
 ![addscreen](images/AddScreen.png)
 
 
