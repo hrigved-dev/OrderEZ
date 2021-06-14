@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +36,10 @@ public class RegisterPage extends AppCompatActivity {
         t2 = (TextInputLayout)findViewById(R.id.password);
         bar = (ProgressBar)findViewById(R.id.progressBar);
         textView = (TextView)findViewById(R.id.textView);
+
+        Spannable wordToSpan = new SpannableString("Already a User? Sign in.");
+        wordToSpan.setSpan(new ForegroundColorSpan(Color.rgb(245, 92, 71)), 16, 23, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(wordToSpan);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

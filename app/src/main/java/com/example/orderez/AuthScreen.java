@@ -38,8 +38,8 @@ public class AuthScreen extends AppCompatActivity {
         t2 = (TextInputLayout)findViewById(R.id.password);
         bar = (ProgressBar)findViewById(R.id.progressBar);
         textView = (TextView)findViewById(R.id.textView);
-        Spannable wordToSpan = new SpannableString("New user? Sign Up Instead.");
-        wordToSpan.setSpan(new ForegroundColorSpan(Color.rgb(245, 92, 71)), 10, 25, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        Spannable wordToSpan = new SpannableString("New user? Sign Up.");
+        wordToSpan.setSpan(new ForegroundColorSpan(Color.rgb(245, 92, 71)), 10, 17, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(wordToSpan);
 
         textView.setOnClickListener(new View.OnClickListener() {

@@ -144,6 +144,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void signOut(View view) {
+
         mAuth.signOut();
         Toast.makeText(getApplicationContext(), "Logged Out Successfully", Toast.LENGTH_LONG).show();
         Intent myIntent = new Intent(Dashboard.this, AuthScreen.class);
