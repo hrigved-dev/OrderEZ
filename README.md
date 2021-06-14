@@ -1,9 +1,5 @@
 # OrderEZ
-An android project
-
-
-## Problem Statement
-
+An android project.
 Designing and creating an Android Application to reduce miscommunication, reduce the ordering time and to make the ordering process at a food place a lot more efficient and hassel-free, when a group of people are involved.
 
 
