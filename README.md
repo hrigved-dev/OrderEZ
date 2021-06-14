@@ -13,6 +13,6 @@ We often find ourselves in a situation where the waiter at a particular restaura
 
 
 ## Screenshots
-![image1]
+![image1](SplashScreen.png)
 
 
