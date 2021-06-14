@@ -15,6 +15,4 @@ We often find ourselves in a situation where the waiter at a particular restaura
 ## Screenshots
 
 
-## GIF
-
 
