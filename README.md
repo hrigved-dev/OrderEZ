@@ -1,6 +1,6 @@
 # OrderEZ
 An android project.
-Designing and creating an Android Application to reduce miscommunication, reduce the ordering time and to make the ordering process at a food place a lot more efficient and hassel-free, when a group of people are involved.
+Designing and creating an Android Application to reduce miscommunication, to save the ordering time and to make the process of ordeing more efficient and hassel-free, when a group of people visit any food joints.
 
 
 ## What is this project about?
